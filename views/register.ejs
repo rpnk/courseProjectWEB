@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Регистрация</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/vehicles">Vehicles</a></li>
+                <li><a href="/drivers">Drivers</a></li>
+                <li><a href="/trips/new">Create Trip</a></li>
+                <li><a href="/vehicles/new">Create Vehicle</a></li>
+                <li><a href="/drivers/new">Create Driver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Регистрация</h1>
+    <form action="/auth/register" method="post">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="role">Роль:</label>
+        <select id="role" name="role_id">
+            <option value="1">Админ</option>
+            <option value="2">Пользователь</option>
+        </select><br><br>
+        <button type="submit">Регистрация</button>
+    </form>
+
+    <footer>
+        Sysuev
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Vehicles</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/vehicles">Vehicles</a></li>
+                <li><a href="/drivers">Drivers</a></li>
+                <li><a href="/trips/new">Create Trip</a></li>
+                <li><a href="/vehicles/new">Create Vehicle</a></li>
+                <li><a href="/drivers/new">Create Driver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Vehicles</h1>
+    <div>
+        <a href="/dashboard">Back to Dashboard</a> | 
+        <a href="/vehicles/new">Add New Vehicle</a>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% vehicles.forEach(vehicle => { %>
+                <tr>
+                    <td><%= vehicle.vehicle_id %></td>
+                    <td><%= vehicle.vehicle_number %></td>
+                    <td><%= vehicle.vehicle_type %></td>
+                    <td>
+                        <a href="/vehicles/edit/<%= vehicle.vehicle_id %>">Edit</a> | 
+                        <form action="/vehicles/delete/<%= vehicle.vehicle_id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <footer>
+        Sysuev
+    </footer>
+</body>
+</html>

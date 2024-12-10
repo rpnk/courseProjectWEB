@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Create Vehicle</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/vehicles">Vehicles</a></li>
+                <li><a href="/drivers">Drivers</a></li>
+                <li><a href="/trips/new">Create Trip</a></li>
+                <li><a href="/vehicles/new">Create Vehicle</a></li>
+                <li><a href="/drivers/new">Create Driver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Create a New Vehicle</h1>
+    <form action="/vehicles/new" method="POST">
+        <label for="vehicle_number">Vehicle Number:</label>
+        <input type="text" id="vehicle_number" name="vehicle_number" required>
+        <br>
+        <label for="vehicle_type">Vehicle Type:</label>
+        <input type="text" id="vehicle_type" name="vehicle_type" required>
+        <br>
+        <button type="submit">Create Vehicle</button>
+    </form>
+    <a href="/vehicles">Back to Vehicles</a>
+
+    <footer>
+        Sysuev
+    </footer>
+</body>
+</html>

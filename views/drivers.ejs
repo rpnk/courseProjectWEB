@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Drivers</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/vehicles">Vehicles</a></li>
+                <li><a href="/drivers">Drivers</a></li>
+                <li><a href="/trips/new">Create Trip</a></li>
+                <li><a href="/vehicles/new">Create Vehicle</a></li>
+                <li><a href="/drivers/new">Create Driver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Drivers</h1>
+    <div>
+        <a href="/dashboard">Back to Dashboard</a> | 
+        <a href="/drivers/new">Add New Driver</a>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>License Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% drivers.forEach(driver => { %>
+                <tr>
+                    <td><%= driver.driver_id %></td>
+                    <td><%= driver.driver_name %></td>
+                    <td><%= driver.license_number %></td>
+                    <td>
+                        <a href="/drivers/edit/<%= driver.driver_id %>">Edit</a> |
+                        <form action="/drivers/delete/<%= driver.driver_id %>" method="post" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <footer>
+        Sysuev
+    </footer>
+</body>
+</html>

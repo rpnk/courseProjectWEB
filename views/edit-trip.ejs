@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Edit Trip</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/vehicles">Vehicles</a></li>
+                <li><a href="/drivers">Drivers</a></li>
+                <li><a href="/trips/new">Create Trip</a></li>
+                <li><a href="/vehicles/new">Create Vehicle</a></li>
+                <li><a href="/drivers/new">Create Driver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Edit Trip</h1>
+    <form action="/trips/edit/<%= trip.trip_id %>" method="post">
+        <label for="vehicle_id">Vehicle:</label>
+        <select id="vehicle_id" name="vehicle_id" required>
+            <% vehicles.forEach(vehicle => { %>
+                <option value="<%= vehicle.vehicle_id %>" <%= vehicle.vehicle_id === trip.vehicle_id ? 'selected' : '' %>><%= vehicle.vehicle_id %> - <%= vehicle.vehicle_number %> - <%= vehicle.vehicle_type %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="driver_id">Driver:</label>
+        <select id="driver_id" name="driver_id" required>
+            <% drivers.forEach(driver => { %>
+                <option value="<%= driver.driver_id %>" <%= driver.driver_id === trip.driver_id ? 'selected' : '' %>><%= driver.driver_id %> - <%= driver.driver_name %> - <%= driver.license_number %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="trip_date">Trip Date:</label>
+        <input type="date" id="trip_date" name="trip_date" value="<%= trip.trip_date %>" required>
+        <br>
+        <label for="departure">Departure:</label>
+        <input type="text" id="departure" name="departure" value="<%= trip.departure %>" required>
+        <br>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" value="<%= trip.destination %>" required>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+
+    <footer>
+        Sysuev
+    </footer>
+</body>
+</html>
