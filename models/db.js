@@ -5,9 +5,9 @@ const connection = mysql.createConnection({
     port: process.env.DB_PORT || 11402,
     user: process.env.DB_USER || 'avnadmin',
     password: process.env.DB_PASSWORD || 'AVNS_PMkTR92HdUD_gGsAQ1A',
-    database: process.env.DB_NAME || 'courseproject',
+    database: process.env.DB_NAME || 'defaultdb',
     ssl: {
-        rejectUnauthorized: true
+        rejectUnauthorized: false  
     }
 });
 
